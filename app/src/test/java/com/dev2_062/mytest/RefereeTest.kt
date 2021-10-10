@@ -13,7 +13,8 @@ class RefereeTest {
 
     @Before
     fun setUp() {
-        referee = Referee()
+        val gridValidator = GridValidator()
+        referee = Referee(gridValidator)
     }
 
     @Test
