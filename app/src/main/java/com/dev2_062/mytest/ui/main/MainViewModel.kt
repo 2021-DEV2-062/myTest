@@ -21,13 +21,7 @@ class MainViewModel : ViewModel() {
     val result = ObservableField("");
 
     init {
-        currentPlayer.set(State.CIRCLE)
-
-        grid = MutableList(9) { State.UNDEFINED }
-
-        for (i in 0..8) {
-            imageRes[i] = 0
-        }
+        reset()
     }
 
     fun onCellClicked(pos: Int) {
@@ -50,5 +44,17 @@ class MainViewModel : ViewModel() {
                 result.set("DRAW !!!")
             }
         }
+    }
+
+    fun reset() {
+        currentPlayer.set(State.CIRCLE)
+
+        for (i in 0..8) {
+            imageRes[i] = 0
+        }
+
+        grid = MutableList(9) { State.UNDEFINED }
+
+        result.set("")
     }
 }
