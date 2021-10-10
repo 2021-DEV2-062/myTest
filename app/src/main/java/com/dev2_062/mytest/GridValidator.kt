@@ -49,7 +49,8 @@ class GridValidator : IGridValidator {
      * Return true if none is UNDEFINED, return false otherwise
      */
     override fun isFull(grid: List<State>): Boolean {
-        TODO("Not yet implemented")
+        return grid.none { it == State.UNDEFINED }
+
     }
 
     /**
