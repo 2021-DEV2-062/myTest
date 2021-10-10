@@ -38,6 +38,13 @@ class GridValidator : IGridValidator {
     }
 
     /**
+     * Return true if second diagonal is found complete in the given grid, return false otherwise
+     */
+    override fun checkSecondDiagonal(grid: List<State>): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    /**
      * Return true if all state in given list are all circles or all cross, return false otherwise
      */
     private fun isComplete(input: List<State>) =
