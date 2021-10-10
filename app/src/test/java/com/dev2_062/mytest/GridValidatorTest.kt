@@ -17,6 +17,8 @@ class GridValidatorTest {
         gridValidator = GridValidator()
     }
 
+
+    // CHECK ROWS TESTS
     @Test
     fun shouldReturnFalseIfNoRowIsComplete() {
         val grid: List<State> = listOf(
@@ -46,5 +48,37 @@ class GridValidatorTest {
         )
         Assert.assertEquals(true, gridValidator.checkRows(grid))
     }
+
+    // CHECK COLUMNS TESTS
+    @Test
+    fun shouldReturnFalseIfNoColumnIsComplete() {
+        val grid: List<State> = listOf(
+            State.UNDEFINED, State.UNDEFINED, State.UNDEFINED,
+            State.UNDEFINED, State.UNDEFINED, State.UNDEFINED,
+            State.UNDEFINED, State.UNDEFINED, State.UNDEFINED
+        )
+        Assert.assertEquals(false, gridValidator.checkColumns(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfFirstColumnIsCross() {
+        val grid: List<State> = listOf(
+            State.CROSS, State.UNDEFINED, State.UNDEFINED,
+            State.CROSS, State.UNDEFINED, State.UNDEFINED,
+            State.CROSS, State.UNDEFINED, State.UNDEFINED
+        )
+        Assert.assertEquals(true, gridValidator.checkColumns(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfSecondColumnIsCircles() {
+        val grid: List<State> = listOf(
+            State.UNDEFINED, State.CIRCLE, State.UNDEFINED,
+            State.UNDEFINED, State.CIRCLE, State.UNDEFINED,
+            State.UNDEFINED, State.CIRCLE, State.UNDEFINED
+        )
+        Assert.assertEquals(true, gridValidator.checkColumns(grid))
+    }
+
 
 }

@@ -11,6 +11,10 @@ class GridValidator : IGridValidator {
         return false
     }
 
+    override fun checkColumns(grid: List<State>): Boolean {
+        TODO()
+    }
+
 
     private fun isComplete(input: List<State>) =
         input.all { it == State.CIRCLE } || input.all { it == State.CROSS }
