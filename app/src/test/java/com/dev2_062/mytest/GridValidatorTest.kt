@@ -80,5 +80,45 @@ class GridValidatorTest {
         Assert.assertEquals(true, gridValidator.checkColumns(grid))
     }
 
+    //CHECK FIRST DIAGONAL TESTS
 
+    @Test
+    fun shouldReturnFalseIfFirstDiagonalIsNotComplete() {
+        val grid: List<State> = listOf(
+            State.CIRCLE, State.UNDEFINED, State.UNDEFINED,
+            State.UNDEFINED, State.CIRCLE, State.UNDEFINED,
+            State.UNDEFINED, State.UNDEFINED, State.UNDEFINED
+        )
+        Assert.assertEquals(false, gridValidator.checkFirstDiagonal(grid))
+    }
+
+    @Test
+    fun shouldReturnFalseIfFirstDiagonalContainsCrossAndCircles() {
+        val grid: List<State> = listOf(
+            State.CIRCLE, State.UNDEFINED, State.UNDEFINED,
+            State.UNDEFINED, State.CIRCLE, State.UNDEFINED,
+            State.UNDEFINED, State.UNDEFINED, State.CROSS
+        )
+        Assert.assertEquals(false, gridValidator.checkFirstDiagonal(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfFirstDiagonalIsAllCross() {
+        val grid: List<State> = listOf(
+            State.CROSS, State.UNDEFINED, State.UNDEFINED,
+            State.UNDEFINED, State.CROSS, State.UNDEFINED,
+            State.UNDEFINED, State.UNDEFINED, State.CROSS
+        )
+        Assert.assertEquals(true, gridValidator.checkFirstDiagonal(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfFirstDiagonalIsAllCircles() {
+        val grid: List<State> = listOf(
+            State.CIRCLE, State.UNDEFINED, State.UNDEFINED,
+            State.UNDEFINED, State.CIRCLE, State.UNDEFINED,
+            State.UNDEFINED, State.UNDEFINED, State.CIRCLE
+        )
+        Assert.assertEquals(true, gridValidator.checkFirstDiagonal(grid))
+    }
 }
