@@ -1,5 +1,6 @@
 package com.dev2_062.mytest.ui.main
 
+import androidx.databinding.ObservableArrayMap
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.dev2_062.mytest.GridValidator
@@ -11,6 +12,8 @@ class MainViewModel : ViewModel() {
 
     private var grid: MutableList<State> = MutableList(9) { State.UNDEFINED }
 
+    val imageRes = ObservableArrayMap<Int, Int>()
+
     private val referee = Referee(GridValidator())
 
     val currentPlayer = ObservableField(State.CIRCLE)
@@ -21,6 +24,10 @@ class MainViewModel : ViewModel() {
         currentPlayer.set(State.CIRCLE)
 
         grid = MutableList(9) { State.UNDEFINED }
+
+        for (i in 0..8) {
+            imageRes[i] = 0
+        }
     }
 
     fun onCellClicked(pos: Int) {
@@ -29,6 +36,7 @@ class MainViewModel : ViewModel() {
 
         currentPlayer.get()?.let {
             grid[pos] = it
+            imageRes.setValueAt(pos, it.res)
         } ?: return
 
         when (referee.check(grid)) {
