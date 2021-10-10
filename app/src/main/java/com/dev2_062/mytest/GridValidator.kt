@@ -42,7 +42,15 @@ class GridValidator : IGridValidator {
      */
     override fun checkSecondDiagonal(grid: List<State>): Boolean {
         val diagonal = listOf(2, 4, 6).mapNotNull { grid.getOrNull(it) }
-        return isComplete(diagonal)    }
+        return isComplete(diagonal)
+    }
+
+    /**
+     * Return true if none is UNDEFINED, return false otherwise
+     */
+    override fun isFull(grid: List<State>): Boolean {
+        TODO("Not yet implemented")
+    }
 
     /**
      * Return true if all state in given list are all circles or all cross, return false otherwise

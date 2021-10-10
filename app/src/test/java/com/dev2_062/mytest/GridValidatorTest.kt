@@ -162,4 +162,56 @@ class GridValidatorTest {
         )
         Assert.assertEquals(true, gridValidator.checkSecondDiagonal(grid))
     }
+
+
+    // IS FULL TESTS
+    @Test
+    fun shouldReturnFalseIfOneIsUndefined() {
+        val grid: List<State> = listOf(
+            State.UNDEFINED, State.CIRCLE, State.CIRCLE,
+            State.CIRCLE, State.CIRCLE, State.CIRCLE,
+            State.CIRCLE, State.CIRCLE, State.CIRCLE
+        )
+        Assert.assertEquals(false, gridValidator.isFull(grid))
+    }
+
+    @Test
+    fun shouldReturnFalseIfTwoAreUndefined() {
+        val grid: List<State> = listOf(
+            State.UNDEFINED, State.UNDEFINED, State.CIRCLE,
+            State.CIRCLE, State.CIRCLE, State.CIRCLE,
+            State.CIRCLE, State.CIRCLE, State.CIRCLE
+        )
+        Assert.assertEquals(false, gridValidator.isFull(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfAllAreCircle() {
+        val grid: List<State> = listOf(
+            State.CIRCLE, State.CIRCLE, State.CIRCLE,
+            State.CIRCLE, State.CIRCLE, State.CIRCLE,
+            State.CIRCLE, State.CIRCLE, State.CIRCLE
+        )
+        Assert.assertEquals(false, gridValidator.isFull(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfAllAreCross() {
+        val grid: List<State> = listOf(
+            State.CROSS, State.CROSS, State.CROSS,
+            State.CROSS, State.CROSS, State.CROSS,
+            State.CROSS, State.CROSS, State.CROSS
+        )
+        Assert.assertEquals(false, gridValidator.isFull(grid))
+    }
+
+    @Test
+    fun shouldReturnTrueIfAllAreCrossOrCircle() {
+        val grid: List<State> = listOf(
+            State.CROSS, State.CIRCLE, State.CROSS,
+            State.CIRCLE, State.CROSS, State.CIRCLE,
+            State.CROSS, State.CIRCLE, State.CROSS
+        )
+        Assert.assertEquals(false, gridValidator.isFull(grid))
+    }
 }

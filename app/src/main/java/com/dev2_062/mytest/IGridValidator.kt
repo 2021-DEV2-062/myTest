@@ -7,4 +7,5 @@ interface IGridValidator {
     fun checkColumns(grid: List<State>): Boolean
     fun checkFirstDiagonal(grid: List<State>): Boolean
     fun checkSecondDiagonal(grid: List<State>): Boolean
+    fun isFull(grid: List<State>): Boolean
 }
