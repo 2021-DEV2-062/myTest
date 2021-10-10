@@ -192,7 +192,7 @@ class GridValidatorTest {
             State.CIRCLE, State.CIRCLE, State.CIRCLE,
             State.CIRCLE, State.CIRCLE, State.CIRCLE
         )
-        Assert.assertEquals(false, gridValidator.isFull(grid))
+        Assert.assertEquals(true, gridValidator.isFull(grid))
     }
 
     @Test
@@ -202,7 +202,7 @@ class GridValidatorTest {
             State.CROSS, State.CROSS, State.CROSS,
             State.CROSS, State.CROSS, State.CROSS
         )
-        Assert.assertEquals(false, gridValidator.isFull(grid))
+        Assert.assertEquals(true, gridValidator.isFull(grid))
     }
 
     @Test
@@ -212,6 +212,6 @@ class GridValidatorTest {
             State.CIRCLE, State.CROSS, State.CIRCLE,
             State.CROSS, State.CIRCLE, State.CROSS
         )
-        Assert.assertEquals(false, gridValidator.isFull(grid))
+        Assert.assertEquals(true, gridValidator.isFull(grid))
     }
 }
