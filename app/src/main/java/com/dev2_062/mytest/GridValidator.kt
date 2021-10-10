@@ -33,7 +33,8 @@ class GridValidator : IGridValidator {
      * Return true if first diagonal is found complete in the given grid, return false otherwise
      */
     override fun checkFirstDiagonal(grid: List<State>): Boolean {
-        TODO()
+        val diagonal = listOf(0, 4, 8).mapNotNull { grid.getOrNull(it) }
+        return isComplete(diagonal)
     }
 
     /**
